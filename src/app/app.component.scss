@@ -1,0 +1,28 @@
+.login{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+}
+.logo-text{
+    font-size: 24px;
+}
+.toolbar{
+    padding: 0 20px;
+}
+.pets{
+    margin-right: 15px;
+    font-size: 18px;
+    font-weight: 300;
+}
+.search-box{
+    margin: 0 0 0 40px;
+    .pet-search{
+        padding: 8px 15px;
+        border-radius: 3px;
+        border: solid 1px #fff;
+        min-width: 450px;
+        &:focus{
+            outline: none;
+        }
+    }
+}
