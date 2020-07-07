@@ -7,11 +7,11 @@
       <label  class="white-cl" for="email"><b>Email</b></label>
       <input   type="text" placeholder="Enter Email" name="email" required>
   
-      <label  class="white-cl" for="psw"><b>Password</b></label>
-      <input  type="password" placeholder="Enter Password" name="psw" required>
+      <label  class="white-cl" for="password"><b>Password</b></label>
+      <input  type="password" placeholder="Enter Password" name="password" required>
   
-      <label  class="white-cl" for="psw-repeat"><b>Repeat Password</b></label>
-      <input   type="password" placeholder="Repeat Password" name="psw-repeat" required>
+      <label  class="white-cl" for="password-repeat"><b>Repeat Password</b></label>
+      <input   type="password" placeholder="Repeat Password" name="password-repeat" required>
   
       <label>
         <input  class="white-cl" type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"><span class="white-cl"> Remember me</span>
@@ -21,8 +21,8 @@
       <div class="button-row">
         <!-- <button type="button" class="cancelbtn">Cancel</button>
         <button type="submit" class="signupbtn">Sign Up</button> -->
-        <button mat-raised-button class="space-right-10">Cancel</button>
-        <button mat-raised-button color="primary">Save</button>
+        <button mat-raised-button class="space-right-10" (click)="registerAction('cancel',$event)">Cancel</button>
+        <button mat-raised-button color="primary" (click)="registerAction('save',$event)">Save</button>
         
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -8,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+    private router: Router,) { }
 
   ngOnInit(): void {
+  }
+  registerAction(action,event){
+    if(action =='cancel'){
+      this.router.navigateByUrl('/login');
+    }
   }
 
 }
