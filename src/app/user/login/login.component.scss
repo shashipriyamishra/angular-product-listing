@@ -32,6 +32,9 @@ body{
 }
 form{
   margin-top: 40px;
+  .signup-text{
+    cursor: pointer;
+  }
 }
 form .field{
   margin-top: 20px;
