@@ -15,10 +15,10 @@
 </div>
 <input type="password" placeholder="Password">
         </div>
-<button (click)="submit()" routerLink="/pet">LOGIN</button>
+<button (click)="redirect('login')" routerLink="/pet">LOGIN</button>
         <div class="link">
           Not a member?
-          <a routerLink="/">Signup now</a>
+          <a (click)="redirect('register')" routerLink="/">Signup now</a>
         </div>
 </form>
 </div>

@@ -7,8 +7,10 @@ import { HomeComponent } from './home/home/home.component';
 import { SharedModule } from "./shared/shared.module";
 import { PetComponent } from './pet/pet.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
-import { HeaderComponent } from './core/header/header.component';
-import { FooterComponent } from './core/footer/footer.component';
+import { HeaderComponent } from './core/components/header/header.component';
+import { FooterComponent } from './core/components/footer/footer.component';
+import { RegisterComponent } from './user/register/register.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { FooterComponent } from './core/footer/footer.component';
     PetComponent,
     MyOrdersComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

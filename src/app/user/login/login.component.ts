@@ -22,7 +22,11 @@ export class LoginComponent implements OnInit {
  
 
 }
-submit(){
+redirect(e){
+if(e == 'login'){
   this.router.navigateByUrl('/my-orders');
+}else{
+  this.router.navigateByUrl('/register');
+}
 }
 }
