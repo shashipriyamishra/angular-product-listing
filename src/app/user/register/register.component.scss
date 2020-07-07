@@ -28,6 +28,10 @@
     width: 35%;
     background: #1B1B14;
     border-radius: 3px;
+    .button-row{
+        display: flex;
+        justify-content: flex-end;
+    }
   }
   
 }
