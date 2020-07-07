@@ -1,0 +1,51 @@
+.login{
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+}
+.logo-text{
+    font-size: 24px;
+}
+.spacer {
+    flex: 1;
+  }
+
+  .toolbar {
+    
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #1b1b1b;
+    color: white;
+    font-weight: 600;
+    padding: 0 20px;
+  }
+
+  .content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+.pets{
+    margin-right: 15px;
+    font-size: 18px;
+    font-weight: 300;
+}
+.search-box{
+    margin: 0 0 0 40px;
+    .pet-search{
+        padding: 8px 15px;
+        border-radius: 3px;
+        border: solid 1px #fff;
+        min-width: 450px;
+        &:focus{
+            outline: none;
+        }
+    }
+}

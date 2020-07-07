@@ -1,0 +1,23 @@
+.toolbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #1b1b1b;
+    color: white;
+    font-weight: 600;
+    padding: 0 20px;
+    p{
+        font-weight: 300;
+        cursor: pointer;
+    }
+    span{
+        font-weight: 300;
+        cursor: pointer;
+    }
+  }
