@@ -38,7 +38,12 @@ form{
 }
 form .field{
   margin-top: 20px;
+
+}
+.login-row{
   display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 .field .fas{
   height: 50px;
@@ -110,4 +115,12 @@ button:hover{
 }
 .login-container{
     text-align: center;
+}
+.error{
+  color: red;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin: 7px 0 0 0;
+  font-weight: 300;
 }

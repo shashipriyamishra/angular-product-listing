@@ -1,25 +1,30 @@
 
 <div class="login-container" layout="row" layout-xs="column">
-
-
 <div  class="login-form">
 <div class="text">LOGIN</div>
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 <div class="field">
-<div class="fas fa-envelope">
-</div>
-<input type="text" formControlName="email" placeholder="Email or Phone">
+        <div class="login-row">
+        <div class="fas fa-envelope"></div>
+        <input type="text"  formControlName="email" placeholder="Email or Phone">
         </div>
+        <span class="error" *ngIf="isSubmitted && formControls.email.errors"> Email is required</span>
+        
+        
+            
+</div>
 <div class="field">
-          <div class="fas fa-lock">
+        <div class="login-row">
+                <div class="fas fa-lock"></div>
+                <input formControlName="password" type="password" placeholder="Password">
+        </div> 
+        <span class="error" *ngIf="isSubmitted && formControls.password.errors"> password is required</span>
+        
 </div>
-<input formControlName="password" type="password" placeholder="Password">
-        </div>
-<button type="submit" [disabled]="!loginForm.valid" >LOGIN</button>
-        <div class="link">
-          Not a member?
-          <a class="signup-text" (click)="redirect('register',$event)" routerLink="/">Signup now</a>
-        </div>
+<button type="submit"  >LOGIN</button>
+<div class="link">Not a member?
+        <a class="signup-text" (click)="redirect('register',$event)" routerLink="/">Signup now</a>
+</div>
 </form>
 </div>
 </div>

@@ -52,14 +52,20 @@ export class LoginComponent implements OnInit {
     console.log(this.loginForm.value);
     this.isSubmitted = true;
     if(this.loginForm.invalid){
+      let snackBarRef = this.snackBar.open('Form is invalid', 'close', {
+        duration: 3000
+      });
       return;
     }
     this.authenticationService.login(this.loginForm.value).subscribe((res)=>{
      
         console.log('output',res);
+        this.router.navigateByUrl('/my-orders');
       },(err=>{
-        let snackBarRef = this.snackBar.open('err', 'close');
+        let snackBarRef = this.snackBar.open(err.error, 'close', {
+          duration: 3000
+        });
       }));
-    // this.router.navigateByUrl('/');
+    
   }
 }
