@@ -15,13 +15,12 @@ export class AuthenticationService {
   public get currentUserValue() {
     return this.currentUserSubject && this.currentUserSubject.value;
 }
-  login(form) {
-    return this.http.post<any>(`http://localhost:3000/users`, { form })
-        .pipe(map(user => {
-            // store user details and jwt token 
-            localStorage.setItem('currentUser', JSON.stringify(user));
-            this.currentUserSubject.next(user);
-            return user;
-        }));
+
+
+public login(form){
+  return this.http.post(`http://localhost:3000/login`,form);
 }
+
+
+
 }

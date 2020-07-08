@@ -8,6 +8,7 @@ import { SharedRoutingModule } from './shared-routing.module';
 import { SharedComponent } from './components/shared/shared.component';
 import {ReactiveFormsModule, FormsModule } from '@angular/forms'; 
 import { LoginComponent } from "../user/login/login.component";
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { LoginComponent } from "../user/login/login.component";
     FlexLayoutModule,
     ReactiveFormsModule,
     FormsModule,
+    MatSnackBarModule,
     
   ],
   exports:[

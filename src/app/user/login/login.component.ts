@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { AuthenticationService } from "../../core/services/authentication/authentication.service";
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 
@@ -15,23 +16,15 @@ export class LoginComponent implements OnInit {
   
   isSubmitted  =  false;
   loginForm : FormGroup;
-  // loginForm = new FormGroup({
-  //   firstName: new FormControl(''),
-  //   lastName: new FormControl(''),
-  //   address: new FormGroup({
-  //     street: new FormControl(''),
-  //     city: new FormControl(''),
-  //     state: new FormControl(''),
-  //     zip: new FormControl('')
-  //   })
-  // });
 
   constructor(private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authentication: AuthenticationService) {
+    private authenticationService: AuthenticationService,
+    private snackBar: MatSnackBar,
+    ) {
 
-      if (this.authentication && this.authentication.currentUserValue) {
+      if (this.authenticationService && this.authenticationService.currentUserValue) {
         this.router.navigate(['/']);
         }
 
@@ -61,7 +54,12 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.invalid){
       return;
     }
-    this.authentication.login(this.loginForm.value);
-    this.router.navigateByUrl('/');
+    this.authenticationService.login(this.loginForm.value).subscribe((res)=>{
+     
+        console.log('output',res);
+      },(err=>{
+        let snackBarRef = this.snackBar.open('err', 'close');
+      }));
+    // this.router.navigateByUrl('/');
   }
 }
