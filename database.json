@@ -15,5 +15,8 @@
   ],
   "profile": {
     "name": "typicode"
-  }
+  },
+  "users": [
+    {"email": "shashipriyamishra@gmail.com", "password": "admin"} 
+       ]
 }
