@@ -31,6 +31,11 @@
       "email": "shashi1@gmail.com",
       "password": "$2a$10$anUmdv7L5KXQm2QsnK43keD0vjiwr/FxynFH5nSQR8ITbHRot11NS",
       "id": 3
+    },
+    {
+      "email": "shashi2@gmail.com",
+      "password": "$2a$10$A.a5NQFqWVmDeBpILtXAZuOsgh.Gs2lu1gLkIjM5i27xuAUgu40cm",
+      "id": 4
     }
   ]
 }
