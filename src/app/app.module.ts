@@ -15,7 +15,7 @@ import {MatButtonModule} from '@angular/material/button';
 
 import { SharedModule } from "./shared/shared.module";
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { reducers } from './store/app.states';
 
 
 
@@ -37,9 +37,7 @@ import { reducers, metaReducers } from './reducers';
     MatCardModule,
     MatButtonModule,
     SharedModule,
-    StoreModule.forRoot(reducers, {
-      metaReducers
-    }),
+    StoreModule.forRoot(reducers, {}),
   ],
   providers: [],
   bootstrap: [AppComponent]
