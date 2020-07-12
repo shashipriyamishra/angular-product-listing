@@ -3,10 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { AuthenticationService } from "../../core/services/authentication/authentication.service";
 import {MatSnackBar} from '@angular/material/snack-bar';
-import { Store } from '@ngrx/store';
-import { fromJS } from 'immutable';
 
-import { LogIn } from '../../store/actions/auth.actions';
 
 
 
@@ -25,7 +22,6 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authenticationService: AuthenticationService,
     private snackBar: MatSnackBar,
-    private store: Store,
     ) {
 
       if (this.authenticationService && this.authenticationService.currentUserValue) {
@@ -61,11 +57,9 @@ export class LoginComponent implements OnInit {
       });
       return;
     }
-    
     this.authenticationService.login(this.loginForm.value).subscribe((res)=>{
      
         console.log('output',res);
-        this.store.dispatch(new LogIn(fromJS(res)));
         this.router.navigateByUrl('/my-orders');
       },(err=>{
         let snackBarRef = this.snackBar.open(err.error, 'close', {
