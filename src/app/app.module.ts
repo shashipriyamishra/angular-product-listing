@@ -19,6 +19,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AuthenticationService } from './core/services/authentication/authentication.service';
 import { AuthenticationEffects } from './store/effects/authentication.effects';
 import { reducers } from './store/app.state';
+import * as authenticateReducer from './store/reducers/authentication.reducer';
 
 
 
@@ -41,7 +42,8 @@ import { reducers } from './store/app.state';
     MatButtonModule,
     SharedModule,
     EffectsModule.forRoot([AuthenticationEffects]),
-    StoreModule.forRoot(reducers, {})
+    StoreModule.forRoot({login: authenticateReducer.reducer}),
+    // StoreModule.forFeature('auth', reducers.authentication),
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent]

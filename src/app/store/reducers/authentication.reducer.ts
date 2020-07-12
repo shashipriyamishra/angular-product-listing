@@ -1,5 +1,7 @@
+import { Action, createReducer, on } from '@ngrx/store';
 import { User } from '../../models/user';
-import { AuthenticationActionTypes, AuthenticationActions } from '../actions/authentication.action';
+// import { AuthenticationActionTypes, AuthenticationActions } from '../actions/authentication.action';
+import * as authenticationActions from '../actions/authentication.action';
 
 export interface State {
   isAuthenticated: boolean;
@@ -16,31 +18,65 @@ export const initialState: State = {
         },
   errorMessage: null
 };
-
-export function reducer(state = initialState, action: AuthenticationActions): State {
-  switch (action.type) {
-    case AuthenticationActionTypes.LOGIN_SUCCESS: {
-      return {
-        ...state,
+const authenticationReducer = createReducer(
+  initialState,
+  on(authenticationActions.authentication, state => ({ 
+    ...state,
         isAuthenticated: true,
         user: {
-          token: action.payload.token,
-          email: action.payload.email
+          token: state.user.token,
+          email: state.user.email
         },
         errorMessage: null
-      };
-    }
-    case AuthenticationActionTypes.LOGIN_FAILURE: {
-      return {
-        ...state,
-        errorMessage: 'Wrong credentials.'
-      };
-    }
-    case AuthenticationActionTypes.LOGOUT: {
-      return initialState;
-    }
-    default: {
-      return state;
-    }
-  }
+   })),
+   on(authenticationActions.authenticationSuccess, state => ({ 
+    ...state,
+    isAuthenticated: true,
+    user: {
+      token: state.user.token,
+      email: state.user.email
+    },
+    errorMessage: null
+   })),
+  on(authenticationActions.authenticationFailure, state => ({
+   ...state,
+   errorMessage: 'Wrong credentials.'
+   
+  })),
+  on(authenticationActions.authenticationLogout, state => ({
+    ...state,
+    initialState
+   }))
+  
+);
+
+export function reducer(state: State | undefined, action: Action) {
+  return authenticationReducer(state, action);
 }
+// export function reducer(state = initialState, action: AuthenticationActions): State {
+//   switch (action.type) {
+//     case AuthenticationActionTypes.LOGIN_SUCCESS: {
+//       return {
+//         ...state,
+//         isAuthenticated: true,
+//         user: {
+//           token: action.payload.token,
+//           email: action.payload.email
+//         },
+//         errorMessage: null
+//       };
+//     }
+//     case AuthenticationActionTypes.LOGIN_FAILURE: {
+//       return {
+//         ...state,
+//         errorMessage: 'Wrong credentials.'
+//       };
+//     }
+//     case AuthenticationActionTypes.LOGOUT: {
+//       return initialState;
+//     }
+//     default: {
+//       return state;
+//     }
+//   }
+// }

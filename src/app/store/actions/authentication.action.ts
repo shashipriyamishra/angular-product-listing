@@ -1,4 +1,4 @@
-import { Action } from '@ngrx/store';
+import { Action,createAction } from '@ngrx/store';
 
 export enum AuthenticationActionTypes {
   LOGIN = '[Authentication] Login',
@@ -7,6 +7,11 @@ export enum AuthenticationActionTypes {
   LOGOUT = '[Authentication] Logout',
 }
 
+
+export const authentication = createAction('[Authentication] Login');
+export const authenticationSuccess = createAction('[Authentication] Login Success');
+export const authenticationFailure = createAction('[Authentication] Login Failure');
+export const authenticationLogout = createAction('[Authentication] Logout');
 export class Login implements Action {
   readonly type = AuthenticationActionTypes.LOGIN;
   constructor(public payload: any) {}

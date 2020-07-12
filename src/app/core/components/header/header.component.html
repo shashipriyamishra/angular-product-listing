@@ -7,7 +7,9 @@
       <div class="spacer"></div>
       <div>
       <a class="pets white-cl" routerLink="/pets" routerLinkActive="active">Pets</a>
-      <a class="login" routerLink="/login" routerLinkActive="active">Login</a>
+      <a *ngIf="!loginData" class="login" routerLink="/login" routerLinkActive="active">Login</a>
+      <a *ngIf="loginData && loginData.user && loginData.user.email" class="login pets" routerLink="/login" routerLinkActive="active">Logout</a>
+      <a  *ngIf="loginData && loginData.user && loginData.user.email" class="white-cl">{{loginData.user.email}}</a>
       
     </div>
   </div>

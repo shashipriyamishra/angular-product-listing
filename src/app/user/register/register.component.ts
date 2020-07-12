@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Store, select } from '@ngrx/store';
+
 
 
 @Component({
@@ -10,9 +12,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
-    private router: Router,) { }
+    private router: Router,private store: Store<any>) { }
 
   ngOnInit(): void {
+    console.log('register', this.store);
+    this.store.select('login').subscribe((state => 
+      console.log('hi',state)
+      ))
   }
   registerAction(action,event){
     if(action =='cancel'){
