@@ -15,7 +15,10 @@ import {MatButtonModule} from '@angular/material/button';
 
 import { SharedModule } from "./shared/shared.module";
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthenticationService } from './core/services/authentication/authentication.service';
+import { AuthenticationEffects } from './store/effects/authentication.effects';
+import { reducers } from './store/app.state';
 
 
 
@@ -37,11 +40,10 @@ import { reducers, metaReducers } from './reducers';
     MatCardModule,
     MatButtonModule,
     SharedModule,
-    StoreModule.forRoot(reducers, {
-      metaReducers
-    }),
+    EffectsModule.forRoot([AuthenticationEffects]),
+    StoreModule.forRoot(reducers, {})
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
