@@ -24,12 +24,12 @@ const authenticationReducer = createReducer(
     ...state,
         isAuthenticated: true,
         user: {
-          token: state.user.token,
+          token: initialState.user.token,
           email: state.user.email
         },
         errorMessage: null
    })),
-   on(authenticationActions.authenticationSuccess, state => ({ 
+   on(authenticationActions.authenticationSuccess,  state => ({ 
     ...state,
     isAuthenticated: true,
     user: {
@@ -45,7 +45,12 @@ const authenticationReducer = createReducer(
   })),
   on(authenticationActions.authenticationLogout, state => ({
     ...state,
-    initialState
+        isAuthenticated: false,
+        user: {
+          token: '',
+          email: ''
+        },
+        errorMessage: null
    }))
   
 );
