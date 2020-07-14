@@ -19,6 +19,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { AuthenticationService } from './core/services/authentication/authentication.service';
 import { AuthenticationEffects } from './store/effects/authentication.effects';
 import { reducers } from './store/app.state';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 import * as authenticateReducer from './store/reducers/authentication.reducer';
 
 
@@ -43,9 +45,14 @@ import * as authenticateReducer from './store/reducers/authentication.reducer';
     SharedModule,
     EffectsModule.forRoot([AuthenticationEffects]),
     StoreModule.forRoot({login: authenticateReducer.reducer}),
+    StoreDevtoolsModule.instrument({ 
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+    }),
     // StoreModule.forFeature('auth', reducers.authentication),
   ],
   providers: [AuthenticationService],
+  exports:[StoreDevtoolsModule], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
